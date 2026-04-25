@@ -9,22 +9,24 @@ import {
 import type { Service } from "@/types";
 
 const iconMap: Record<string, React.ReactNode> = {
-  RefreshCw: <RefreshCw size={28} />,
-  Sparkles: <Sparkles size={28} />,
-  WashingMachine: <WashingMachine size={28} />,
-  ClipboardCheck: <ClipboardCheck size={28} />,
-  Waves: <Waves size={28} />,
-  Package: <Package size={28} />,
+  RefreshCw: <RefreshCw size={24} strokeWidth={1.5} />,
+  Sparkles: <Sparkles size={24} strokeWidth={1.5} />,
+  WashingMachine: <WashingMachine size={24} strokeWidth={1.5} />,
+  ClipboardCheck: <ClipboardCheck size={24} strokeWidth={1.5} />,
+  Waves: <Waves size={24} strokeWidth={1.5} />,
+  Package: <Package size={24} strokeWidth={1.5} />,
 };
 
 export default function ServiceCard({ icon, title, description }: Service) {
   return (
-    <div className="group bg-charcoal/50 border border-white/5 p-8 hover:border-gold/30 transition-all duration-300">
-      <div className="text-gold mb-5">{iconMap[icon]}</div>
-      <h3 className="font-display font-bold text-xl text-white mb-3">
+    <div className="card-glow group bg-charcoal/40 border border-white/[0.04] p-8 lg:p-9 hover:border-gold/20 transition-all duration-500 hover:bg-charcoal/60">
+      <div className="w-12 h-12 rounded-full bg-gold/[0.08] border border-gold/15 flex items-center justify-center text-gold mb-6 group-hover:bg-gold/15 group-hover:border-gold/30 transition-all duration-400">
+        {iconMap[icon]}
+      </div>
+      <h3 className="font-display font-bold text-lg text-white mb-3 tracking-wide">
         {title}
       </h3>
-      <p className="text-sm text-gray leading-relaxed">{description}</p>
+      <p className="text-[0.82rem] text-gray leading-[1.75] font-light">{description}</p>
     </div>
   );
 }

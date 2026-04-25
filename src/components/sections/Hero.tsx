@@ -1,3 +1,4 @@
+import { Camera, Star } from "lucide-react";
 import Button from "@/components/ui/Button";
 import StarGraphic from "@/components/ui/StarGraphic";
 import { BUSINESS, HERO_STATS } from "@/lib/constants";
@@ -5,27 +6,39 @@ import { BUSINESS, HERO_STATS } from "@/lib/constants";
 export default function Hero() {
   return (
     <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden">
+      {/* Ambient background gradients */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-gold/[0.02] rounded-full blur-[100px]" />
+      </div>
+
       {/* Left content */}
       <div className="flex flex-col justify-center px-6 lg:px-16 pt-32 pb-16 lg:pt-40 lg:pb-20 relative z-10">
-        <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs tracking-[0.15em] uppercase px-4 py-1.5 w-fit mb-8">
-          <span>★</span> Las Vegas&apos;s #1 STR Cleaning Service
+        <div className="inline-flex items-center gap-2.5 bg-gold/[0.08] border border-gold/20 text-gold text-[0.7rem] tracking-[0.18em] uppercase px-4 py-2 w-fit mb-8">
+          <span className="flex gap-[3px]">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={10} className="fill-gold text-gold" />
+            ))}
+          </span>
+          Las Vegas&apos;s #1 STR Cleaning Service
         </div>
 
-        <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-white">
+        <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4.25rem] leading-[1.05] text-white">
           Turnover Cleaning
           <br />
           That Earns{" "}
           <em className="italic text-gold">Five-Star</em>{" "}
+          <br className="hidden sm:block" />
           Reviews
         </h1>
 
-        <p className="mt-6 text-base lg:text-lg text-gray leading-relaxed max-w-lg">
+        <p className="mt-6 text-[0.95rem] lg:text-[1.05rem] text-gray leading-[1.8] max-w-lg font-light">
           Professional cleaning for Airbnb, VRBO, and short-term rental
           properties. Fast turnovers, spotless results, photo documentation
           after every clean.
         </p>
 
-        <div className="flex flex-wrap gap-4 mt-8">
+        <div className="flex flex-wrap gap-4 mt-10">
           <Button href={`tel:${BUSINESS.phone.replace(/[^\d]/g, "")}`}>
             Get a Quote
           </Button>
@@ -34,15 +47,18 @@ export default function Hero() {
           </Button>
         </div>
 
-        <div className="flex gap-8 lg:gap-10 mt-12 pt-8 border-t border-white/[0.07]">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label}>
-              <div className="font-display text-3xl lg:text-4xl font-bold text-gold">
+        <div className="flex gap-8 lg:gap-12 mt-14 pt-8 border-t border-white/[0.06]">
+          {HERO_STATS.map((stat, i) => (
+            <div key={stat.label} className="relative">
+              <div className="font-display text-3xl lg:text-[2.5rem] font-bold text-gold leading-none">
                 {stat.value}
               </div>
-              <div className="text-xs text-gray uppercase tracking-widest mt-1">
+              <div className="text-[0.65rem] text-gray/80 uppercase tracking-[0.15em] mt-2 font-medium">
                 {stat.label}
               </div>
+              {i < HERO_STATS.length - 1 && (
+                <div className="absolute right-[-1rem] lg:right-[-1.5rem] top-1 bottom-1 w-px bg-white/[0.06] hidden sm:block" />
+              )}
             </div>
           ))}
         </div>
@@ -50,25 +66,30 @@ export default function Hero() {
 
       {/* Right visual */}
       <div className="relative hidden lg:block overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1408] via-off-black to-black" />
-        <div className="absolute inset-0 flex items-center justify-center z-10 p-16">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#15120a] via-off-black to-[#0d0c0f]" />
+        <div className="absolute inset-0 hero-grid opacity-50" />
+        <div className="absolute inset-0 flex items-center justify-center z-10 p-12">
           <StarGraphic />
         </div>
 
-        {/* Floating cards */}
-        <div className="absolute bottom-[15%] left-[-3%] z-20 bg-charcoal/90 border border-gold/20 backdrop-blur-xl px-4 py-3 flex items-center gap-3 animate-float">
-          <span className="text-lg">📸</span>
+        {/* Floating cards — with proper icons instead of emoji */}
+        <div className="absolute bottom-[15%] left-[-4%] z-20 bg-charcoal/80 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float shadow-2xl shadow-black/40">
+          <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
+            <Camera size={16} className="text-gold" />
+          </div>
           <div>
-            <div className="text-sm text-white whitespace-nowrap">Photo Report Sent</div>
-            <div className="text-xs text-gold tracking-wide">Every clean documented</div>
+            <div className="text-[0.8rem] text-white font-medium whitespace-nowrap">Photo Report Sent</div>
+            <div className="text-[0.65rem] text-gold/70 tracking-wide mt-0.5">Every clean documented</div>
           </div>
         </div>
 
-        <div className="absolute top-[18%] right-[-2%] z-20 bg-charcoal/90 border border-gold/20 backdrop-blur-xl px-4 py-3 flex items-center gap-3 animate-float-delayed">
-          <span className="text-lg">⭐</span>
+        <div className="absolute top-[18%] right-[-2%] z-20 bg-charcoal/80 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float-delayed shadow-2xl shadow-black/40">
+          <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
+            <Star size={16} className="fill-gold text-gold" />
+          </div>
           <div>
-            <div className="text-sm text-white whitespace-nowrap">5.0 Rating</div>
-            <div className="text-xs text-gold tracking-wide">500+ reviews</div>
+            <div className="text-[0.8rem] text-white font-medium whitespace-nowrap">5.0 Rating</div>
+            <div className="text-[0.65rem] text-gold/70 tracking-wide mt-0.5">500+ verified reviews</div>
           </div>
         </div>
       </div>
