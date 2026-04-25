@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Camera, Star } from "lucide-react";
 import Button from "@/components/ui/Button";
-import StarGraphic from "@/components/ui/StarGraphic";
 import { BUSINESS, HERO_STATS } from "@/lib/constants";
 
 export default function Hero() {
@@ -64,16 +64,24 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right visual */}
+      {/* Right visual — luxury bedroom photo */}
       <div className="relative hidden lg:block overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#15120a] via-off-black to-[#0d0c0f]" />
-        <div className="absolute inset-0 hero-grid opacity-50" />
-        <div className="absolute inset-0 flex items-center justify-center z-10 p-12">
-          <StarGraphic />
-        </div>
+        <Image
+          src="/images/hero-bedroom.jpg"
+          alt="Luxury hotel room with crisp white bedding and gold accents"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="50vw"
+        />
+        {/* Dark overlay to blend with site's dark theme */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 z-10" />
+        {/* Subtle gold tint to match brand */}
+        <div className="absolute inset-0 bg-gold/[0.04] mix-blend-overlay z-10" />
 
-        {/* Floating cards — with proper icons instead of emoji */}
-        <div className="absolute bottom-[15%] left-[-4%] z-20 bg-charcoal/80 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float shadow-2xl shadow-black/40">
+        {/* Floating cards */}
+        <div className="absolute bottom-[15%] left-[5%] z-20 bg-black/70 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float shadow-2xl shadow-black/60">
           <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
             <Camera size={16} className="text-gold" />
           </div>
@@ -83,7 +91,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="absolute top-[18%] right-[-2%] z-20 bg-charcoal/80 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float-delayed shadow-2xl shadow-black/40">
+        <div className="absolute top-[18%] right-[5%] z-20 bg-black/70 border border-gold/15 backdrop-blur-2xl px-5 py-3.5 flex items-center gap-3.5 animate-float-delayed shadow-2xl shadow-black/60">
           <div className="w-9 h-9 rounded-full bg-gold/10 flex items-center justify-center">
             <Star size={16} className="fill-gold text-gold" />
           </div>
@@ -92,6 +100,19 @@ export default function Hero() {
             <div className="text-[0.65rem] text-gold/70 tracking-wide mt-0.5">500+ verified reviews</div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile hero image (below content) */}
+      <div className="relative lg:hidden h-[300px] sm:h-[400px]">
+        <Image
+          src="/images/hero-bedroom.jpg"
+          alt="Luxury hotel room with crisp white bedding"
+          fill
+          className="object-cover object-top"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
       </div>
     </section>
   );

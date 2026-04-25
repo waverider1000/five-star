@@ -1,11 +1,26 @@
+import Image from "next/image";
 import { Phone, Mail, MessageSquare } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
 
 export default function CTABanner() {
   return (
     <section className="relative px-6 lg:px-16 py-24 lg:py-32 overflow-hidden">
-      {/* Layered background atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-charcoal/30 to-black" />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/scrubbing-detail.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        {/* Heavy dark overlay */}
+        <div className="absolute inset-0 bg-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
+      </div>
+
+      {/* Gold glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/[0.04] rounded-full blur-[150px] pointer-events-none animate-pulse-glow" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold/[0.06] rounded-full blur-[80px] pointer-events-none" />
 
