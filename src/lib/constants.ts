@@ -27,7 +27,7 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const HERO_STATS: HeroStat[] = [
-  { value: "500+", label: "Properties Cleaned" },
+  { value: "300+", label: "5 Star Reviews" },
   { value: "4.9", label: "Average Rating" },
 ];
 
@@ -120,8 +120,8 @@ export const WHY_US = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: "01",
-    title: "Book Online",
-    description: "Schedule your cleaning in under 60 seconds. Pick your date, property, and service type.",
+    title: "Book Now",
+    description: "Call or text for a free estimate.",
   },
   {
     step: "02",
