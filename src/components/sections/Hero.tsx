@@ -20,7 +20,7 @@ export default function Hero() {
               <Star key={i} size={10} className="fill-gold text-gold" />
             ))}
           </span>
-          Las Vegas&apos;s #1 STR Cleaning Service
+          San Diego&apos;s #1 STR Cleaning Service
         </div>
 
         <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4.25rem] leading-[1.05] text-white">
