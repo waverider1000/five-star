@@ -29,7 +29,6 @@ export const NAV_LINKS: NavLink[] = [
 export const HERO_STATS: HeroStat[] = [
   { value: "500+", label: "Properties Cleaned" },
   { value: "4.9", label: "Average Rating" },
-  { value: "2hr", label: "Avg. Turnover" },
 ];
 
 export const TRUST_ITEMS: TrustItem[] = [
