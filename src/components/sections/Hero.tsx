@@ -20,11 +20,16 @@ export default function Hero() {
               <Star key={i} size={10} className="fill-gold text-gold" />
             ))}
           </span>
-          San Diego&apos;s #1 STR Cleaning Service
+          Las Vegas&apos;s #1 STR Cleaning Service
         </div>
 
         <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4.25rem] leading-[1.05] text-white">
-          This is just a test to some anything random
+          Turnover Cleaning
+          <br />
+          That Earns{" "}
+          <em className="italic text-gold">Five-Star</em>{" "}
+          <br className="hidden sm:block" />
+          Reviews
         </h1>
 
         <p className="mt-6 text-[0.95rem] lg:text-[1.05rem] text-gray leading-[1.8] max-w-lg font-light">
