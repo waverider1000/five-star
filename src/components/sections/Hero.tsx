@@ -59,11 +59,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right visual — luxury bedroom photo */}
+      {/* Right visual — luxury living room photo */}
       <div className="relative hidden lg:block overflow-hidden">
         <Image
-          src="/images/hero-bedroom.jpg"
-          alt="Luxury hotel room with crisp white bedding and gold accents"
+          src="/images/hero-living-room.jpg"
+          alt="Luxury living room with modern furnishings and tasteful decor"
           fill
           className="object-cover object-center"
           priority
