@@ -10,7 +10,7 @@ import type {
 
 export const BUSINESS = {
   name: "Five Star STR Cleaning",
-  phone: "(702) 555-0199",
+  phone: "(702) 475-3026",
   email: "info@fivestarstrcleaning.com",
   address: "Las Vegas, NV",
   license: "NV Business License #XXXXX",
